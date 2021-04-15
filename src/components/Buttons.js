@@ -5,35 +5,54 @@ import {nextPage, prevPage} from '../REDUX/actions.js';
 
 
 
+// Кнопки, в зависимости от этапа
 function Buttons() {
+	
 	const dispatch = useDispatch() 
+	
 	const page = useSelector(state => state.counter.counter) 
+	const buttonStatus = useSelector(state => state.button)
 
-  return (
-	    <div className="buttons">
-	    	{(+page !== 1) ?
-	    	<div className="button"
+
+	return (
+		<div className="buttons">
+
+			{(+page !== 1) ?
+			<button className="button"
 			onClick={()=>dispatch(prevPage())}>
-				Назад
-			</div>
+			Назад
+			</button>
 			: null}
 			
-			{(+page !== 3) ?
-	    	<div className="button"
-			onClick={()=>dispatch(nextPage())}>
-				Далее
-			</div>
+			{(+page === 1) ?
+			<button className="button"
+			onClick={()=>dispatch(nextPage())}
+			disabled={buttonStatus.PAGE1_statusButton}
+			>
+			Далее
+			</button>
+			: null}
+
+			{(+page === 2) ?
+			<button className="button"
+			onClick={()=>dispatch(nextPage())}
+			disabled={buttonStatus.PAGE2_statusButton}
+			>
+			Далее
+			</button>
 			: null}
 
 			{(+page === 3) ?
-	    	<div className="button"
-			onClick={()=>dispatch(nextPage())}>
-				Отправить
-			</div>
+			<button className="button"
+			onClick={()=>dispatch(nextPage())}
+			disabled={buttonStatus.PAGE3_statusButton}
+			>
+			Отправить
+			</button>	
 			: null}
-			
-	    </div>
-  )
+
+		</div>
+	)
 }
 
 export default Buttons;

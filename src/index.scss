@@ -17,15 +17,15 @@ body {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	max-width: 700px;
-	height: 345px;
+	height: 405px;
 	width: 100%;
 	background: #b0e5ff;
 	border: 2px solid #00c9ff;
 }
 
-form.registration_form {
+.registration_form {
 	padding: 40px 40px 0 40px;
-	height: 300px;
+	height: 345px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -76,4 +76,11 @@ form.registration_form {
 	span {
 		transform: rotate(25deg);
 	}
+}
+
+.row {
+	display: flex;
+	width: 100%;
+	padding: 0 20px;
+	justify-content: space-between;
 }
