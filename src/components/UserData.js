@@ -13,26 +13,26 @@ function UserData() {
 
   // Проверка на количество вводимых символов
 
-  let a = []
+  let passedСheck = []
 
   for (let key in input) {
 
     if (key === 'date') {
 
       if (input[key].trim().length === 10) {
-        a.push(input[key])
+        passedСheck.push(input[key])
       }
 
     } else {
 
       if (input[key].trim().length >=3) {
-        a.push(input[key])
+        passedСheck.push(input[key])
       }
 
     }
   }
 
-  if (a.length>3) {
+  if (passedСheck.length>3) {
     dispatch(PAGE1_activeButton())
   } else {
     dispatch(PAGE1_notActiveButton())
@@ -41,7 +41,7 @@ function UserData() {
 
 
 
-  
+
 
   function changeValue (event) {
     dispatch(setValue(event.target.name, event.target.value));
